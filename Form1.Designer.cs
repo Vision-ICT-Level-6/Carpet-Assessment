@@ -56,6 +56,8 @@
             this.lblRoomCost = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomWidth)).BeginInit();
@@ -74,9 +76,9 @@
             this.cbxInstall.Location = new System.Drawing.Point(25, 21);
             this.cbxInstall.Margin = new System.Windows.Forms.Padding(2);
             this.cbxInstall.Name = "cbxInstall";
-            this.cbxInstall.Size = new System.Drawing.Size(76, 17);
+            this.cbxInstall.Size = new System.Drawing.Size(198, 17);
             this.cbxInstall.TabIndex = 0;
-            this.cbxInstall.Text = "Installation";
+            this.cbxInstall.Text = "Do you want us to install the carpet?";
             this.cbxInstall.UseVisualStyleBackColor = true;
             this.cbxInstall.CheckedChanged += new System.EventHandler(this.cbxAllBoxes_CheckedChanged);
             // 
@@ -86,21 +88,21 @@
             this.cbxUnderlay.Location = new System.Drawing.Point(25, 42);
             this.cbxUnderlay.Margin = new System.Windows.Forms.Padding(2);
             this.cbxUnderlay.Name = "cbxUnderlay";
-            this.cbxUnderlay.Size = new System.Drawing.Size(68, 17);
+            this.cbxUnderlay.Size = new System.Drawing.Size(208, 17);
             this.cbxUnderlay.TabIndex = 1;
-            this.cbxUnderlay.Text = "Underlay";
+            this.cbxUnderlay.Text = "Do you want Underlay for your carpet?";
             this.cbxUnderlay.UseVisualStyleBackColor = true;
             this.cbxUnderlay.CheckedChanged += new System.EventHandler(this.cbxAllBoxes_CheckedChanged);
             // 
             // cbxCarpet
             // 
             this.cbxCarpet.AutoSize = true;
-            this.cbxCarpet.Location = new System.Drawing.Point(25, 64);
+            this.cbxCarpet.Location = new System.Drawing.Point(25, 60);
             this.cbxCarpet.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCarpet.Name = "cbxCarpet";
-            this.cbxCarpet.Size = new System.Drawing.Size(57, 17);
+            this.cbxCarpet.Size = new System.Drawing.Size(125, 17);
             this.cbxCarpet.TabIndex = 2;
-            this.cbxCarpet.Text = "Carpet";
+            this.cbxCarpet.Text = "Do you want carpet?";
             this.cbxCarpet.UseVisualStyleBackColor = true;
             this.cbxCarpet.CheckedChanged += new System.EventHandler(this.cbxAllBoxes_CheckedChanged);
             // 
@@ -109,11 +111,11 @@
             this.groupBox1.Controls.Add(this.cbxUnderlay);
             this.groupBox1.Controls.Add(this.cbxCarpet);
             this.groupBox1.Controls.Add(this.cbxInstall);
-            this.groupBox1.Location = new System.Drawing.Point(174, 137);
+            this.groupBox1.Location = new System.Drawing.Point(174, 195);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(133, 108);
+            this.groupBox1.Size = new System.Drawing.Size(245, 108);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carpet Options";
@@ -156,7 +158,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnCheap);
             this.flowLayoutPanel1.Controls.Add(this.btnHome);
             this.flowLayoutPanel1.Controls.Add(this.btnLux);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(30, 138);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(33, 195);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(123, 140);
             this.flowLayoutPanel1.TabIndex = 7;
@@ -191,7 +193,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 25);
+            this.label4.Location = new System.Drawing.Point(7, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 13;
@@ -203,6 +205,7 @@
             this.numRoomWidth.Name = "numRoomWidth";
             this.numRoomWidth.Size = new System.Drawing.Size(70, 20);
             this.numRoomWidth.TabIndex = 9;
+            this.numRoomWidth.ValueChanged += new System.EventHandler(this.AllUpDown_ValueChanged);
             // 
             // numRoomLength
             // 
@@ -210,6 +213,7 @@
             this.numRoomLength.Name = "numRoomLength";
             this.numRoomLength.Size = new System.Drawing.Size(70, 20);
             this.numRoomLength.TabIndex = 14;
+            this.numRoomLength.ValueChanged += new System.EventHandler(this.AllUpDown_ValueChanged);
             // 
             // numUnderlayCost
             // 
@@ -253,7 +257,7 @@
             this.panel1.Controls.Add(this.numUnderlayCost);
             this.panel1.Controls.Add(this.numInstallCost);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(404, 158);
+            this.panel1.Location = new System.Drawing.Point(460, 198);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 82);
             this.panel1.TabIndex = 17;
@@ -281,17 +285,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkOrange;
             this.label5.Location = new System.Drawing.Point(49, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 25);
+            this.label5.Size = new System.Drawing.Size(260, 31);
             this.label5.TabIndex = 18;
             this.label5.Text = "Wholesale Carpets";
             // 
             // pbxCarpetImage
             // 
-            this.pbxCarpetImage.Location = new System.Drawing.Point(30, 284);
+            this.pbxCarpetImage.Location = new System.Drawing.Point(32, 342);
             this.pbxCarpetImage.Name = "pbxCarpetImage";
             this.pbxCarpetImage.Size = new System.Drawing.Size(340, 75);
             this.pbxCarpetImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -322,7 +326,7 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.lblRoomCost);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(404, 297);
+            this.panel2.Location = new System.Drawing.Point(507, 342);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(153, 62);
             this.panel2.TabIndex = 22;
@@ -351,12 +355,11 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.numRoomWidth);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.numRoomLength);
-            this.panel3.Location = new System.Drawing.Point(53, 69);
+            this.panel3.Location = new System.Drawing.Point(29, 90);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(503, 66);
             this.panel3.TabIndex = 23;
@@ -364,17 +367,42 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(38, 4);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(29, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 13);
+            this.label9.Size = new System.Drawing.Size(533, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Enter your room Dimensions first";
+            this.label9.Text = "Enter your room dimensions first, then choose from the 3 carpet types and the Car" +
+    "pet options";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(30, 170);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "1 Choose your carpet";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(171, 170);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(133, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "2 Choose your options";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 440);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pbxCarpetImage);
@@ -385,7 +413,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -435,6 +462,8 @@
         private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
 

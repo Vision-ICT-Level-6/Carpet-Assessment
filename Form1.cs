@@ -15,11 +15,6 @@ namespace CarpetAss1
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void btnCheap_Click(object sender, EventArgs e)
         {
@@ -49,6 +44,10 @@ namespace CarpetAss1
             Calculation();
         }
 
+        private void AllUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            Calculation();
+        }
 
         private void Calculation()
         {
