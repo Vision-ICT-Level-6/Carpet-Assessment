@@ -36,6 +36,8 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.btnLux = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblCarpetCost = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.numUnderlayCost = new System.Windows.Forms.NumericUpDown();
             this.numInstallCost = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblCarpetCost = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbxCarpetImage = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,6 +58,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lbxSummary = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnClearSummary = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomWidth)).BeginInit();
@@ -73,7 +76,7 @@
             // cbxInstall
             // 
             this.cbxInstall.AutoSize = true;
-            this.cbxInstall.Location = new System.Drawing.Point(25, 21);
+            this.cbxInstall.Location = new System.Drawing.Point(25, 37);
             this.cbxInstall.Margin = new System.Windows.Forms.Padding(2);
             this.cbxInstall.Name = "cbxInstall";
             this.cbxInstall.Size = new System.Drawing.Size(198, 17);
@@ -85,7 +88,7 @@
             // cbxUnderlay
             // 
             this.cbxUnderlay.AutoSize = true;
-            this.cbxUnderlay.Location = new System.Drawing.Point(25, 42);
+            this.cbxUnderlay.Location = new System.Drawing.Point(25, 60);
             this.cbxUnderlay.Margin = new System.Windows.Forms.Padding(2);
             this.cbxUnderlay.Name = "cbxUnderlay";
             this.cbxUnderlay.Size = new System.Drawing.Size(208, 17);
@@ -97,7 +100,7 @@
             // cbxCarpet
             // 
             this.cbxCarpet.AutoSize = true;
-            this.cbxCarpet.Location = new System.Drawing.Point(25, 60);
+            this.cbxCarpet.Location = new System.Drawing.Point(25, 16);
             this.cbxCarpet.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCarpet.Name = "cbxCarpet";
             this.cbxCarpet.Size = new System.Drawing.Size(125, 17);
@@ -115,53 +118,75 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(245, 108);
+            this.groupBox1.Size = new System.Drawing.Size(245, 90);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carpet Options";
             // 
             // btnCheap
             // 
-            this.btnCheap.Location = new System.Drawing.Point(3, 3);
+            this.btnCheap.Location = new System.Drawing.Point(3, 16);
             this.btnCheap.Name = "btnCheap";
             this.btnCheap.Size = new System.Drawing.Size(114, 38);
             this.btnCheap.TabIndex = 4;
             this.btnCheap.Tag = "15";
-            this.btnCheap.Text = "Cheap ";
+            this.btnCheap.Text = "Cheap";
             this.btnCheap.UseVisualStyleBackColor = true;
-            this.btnCheap.Click += new System.EventHandler(this.btnCheap_Click);
+            this.btnCheap.Click += new System.EventHandler(this.btnAllCarpetButtons_Click);
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(3, 47);
+            this.btnHome.Location = new System.Drawing.Point(3, 60);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(114, 38);
             this.btnHome.TabIndex = 5;
             this.btnHome.Tag = "20";
-            this.btnHome.Text = "Home ";
+            this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnHome.Click += new System.EventHandler(this.btnAllCarpetButtons_Click);
             // 
             // btnLux
             // 
-            this.btnLux.Location = new System.Drawing.Point(3, 91);
+            this.btnLux.Location = new System.Drawing.Point(3, 104);
             this.btnLux.Name = "btnLux";
             this.btnLux.Size = new System.Drawing.Size(114, 38);
             this.btnLux.TabIndex = 6;
             this.btnLux.Tag = "40";
-            this.btnLux.Text = "Luxurious ";
+            this.btnLux.Text = "Luxurious";
             this.btnLux.UseVisualStyleBackColor = true;
-            this.btnLux.Click += new System.EventHandler(this.btnLux_Click);
+            this.btnLux.Click += new System.EventHandler(this.btnAllCarpetButtons_Click);
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.lblCarpetCost);
             this.flowLayoutPanel1.Controls.Add(this.btnCheap);
             this.flowLayoutPanel1.Controls.Add(this.btnHome);
             this.flowLayoutPanel1.Controls.Add(this.btnLux);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(33, 195);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(123, 140);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(123, 148);
             this.flowLayoutPanel1.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Carpet Cost";
+            // 
+            // lblCarpetCost
+            // 
+            this.lblCarpetCost.AutoSize = true;
+            this.lblCarpetCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarpetCost.ForeColor = System.Drawing.Color.Red;
+            this.lblCarpetCost.Location = new System.Drawing.Point(71, 0);
+            this.lblCarpetCost.Name = "lblCarpetCost";
+            this.lblCarpetCost.Size = new System.Drawing.Size(14, 13);
+            this.lblCarpetCost.TabIndex = 18;
+            this.lblCarpetCost.Text = "0";
             // 
             // label1
             // 
@@ -184,7 +209,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 51);
+            this.label3.Location = new System.Drawing.Point(6, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 11;
@@ -193,7 +218,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 30);
+            this.label4.Location = new System.Drawing.Point(6, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 13;
@@ -217,7 +242,7 @@
             // 
             // numUnderlayCost
             // 
-            this.numUnderlayCost.Location = new System.Drawing.Point(114, 28);
+            this.numUnderlayCost.Location = new System.Drawing.Point(113, 3);
             this.numUnderlayCost.Minimum = new decimal(new int[] {
             15,
             0,
@@ -234,7 +259,7 @@
             // 
             // numInstallCost
             // 
-            this.numInstallCost.Location = new System.Drawing.Point(114, 51);
+            this.numInstallCost.Location = new System.Drawing.Point(113, 26);
             this.numInstallCost.Minimum = new decimal(new int[] {
             15,
             0,
@@ -251,36 +276,14 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblCarpetCost);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.numUnderlayCost);
             this.panel1.Controls.Add(this.numInstallCost);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(460, 198);
+            this.panel1.Location = new System.Drawing.Point(424, 201);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 82);
+            this.panel1.Size = new System.Drawing.Size(200, 53);
             this.panel1.TabIndex = 17;
-            // 
-            // lblCarpetCost
-            // 
-            this.lblCarpetCost.AutoSize = true;
-            this.lblCarpetCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarpetCost.ForeColor = System.Drawing.Color.Red;
-            this.lblCarpetCost.Location = new System.Drawing.Point(111, 4);
-            this.lblCarpetCost.Name = "lblCarpetCost";
-            this.lblCarpetCost.Size = new System.Drawing.Size(14, 13);
-            this.lblCarpetCost.TabIndex = 18;
-            this.lblCarpetCost.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Carpet Cost";
             // 
             // label5
             // 
@@ -295,7 +298,7 @@
             // 
             // pbxCarpetImage
             // 
-            this.pbxCarpetImage.Location = new System.Drawing.Point(32, 342);
+            this.pbxCarpetImage.Location = new System.Drawing.Point(174, 290);
             this.pbxCarpetImage.Name = "pbxCarpetImage";
             this.pbxCarpetImage.Size = new System.Drawing.Size(340, 75);
             this.pbxCarpetImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -326,7 +329,7 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.lblRoomCost);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(507, 342);
+            this.panel2.Location = new System.Drawing.Point(520, 290);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(153, 62);
             this.panel2.TabIndex = 22;
@@ -395,11 +398,46 @@
             this.label11.TabIndex = 25;
             this.label11.Text = "2 Choose your options";
             // 
+            // lbxSummary
+            // 
+            this.lbxSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxSummary.FormattingEnabled = true;
+            this.lbxSummary.HorizontalScrollbar = true;
+            this.lbxSummary.ItemHeight = 16;
+            this.lbxSummary.Location = new System.Drawing.Point(29, 401);
+            this.lbxSummary.Name = "lbxSummary";
+            this.lbxSummary.ScrollAlwaysVisible = true;
+            this.lbxSummary.Size = new System.Drawing.Size(644, 100);
+            this.lbxSummary.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(29, 383);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(135, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "History of Carpet selections";
+            // 
+            // btnClearSummary
+            // 
+            this.btnClearSummary.Location = new System.Drawing.Point(176, 378);
+            this.btnClearSummary.Name = "btnClearSummary";
+            this.btnClearSummary.Size = new System.Drawing.Size(116, 23);
+            this.btnClearSummary.TabIndex = 28;
+            this.btnClearSummary.Text = "Clear Summary";
+            this.btnClearSummary.UseVisualStyleBackColor = true;
+            this.btnClearSummary.Click += new System.EventHandler(this.btnClearSummary_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 440);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(723, 536);
+            this.Controls.Add(this.btnClearSummary);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbxSummary);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -416,6 +454,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRoomLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUnderlayCost)).EndInit();
@@ -464,6 +503,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox lbxSummary;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnClearSummary;
     }
 }
 

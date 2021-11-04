@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CarpetAss1
+﻿namespace CarpetAss1
 {
     class CarpetCalc
     {
@@ -10,12 +8,12 @@ namespace CarpetAss1
         public float CarpetCost { get; set; }
         public float InstallationCost { get; set; }
         public float UnderlayCost { get; set; }
-
-        private List<float> totalCost { get; set; }
+        private float sumTotal { get; set; }
+        //   private List<float> totalCost { get; set; }
 
         public CarpetCalc()
         {
-            totalCost = new List<float>();
+            //    totalCost = new List<float>();
 
         }
 
@@ -56,6 +54,7 @@ namespace CarpetAss1
             int carpetRolls = (int)totalLength / carpetRollLength;
 
             //if there is aything left over get another full roll
+            //Using Mod to get the remainder
             if (totalLength % carpetRollLength > 0)
             {
                 carpetRolls++;
@@ -64,21 +63,18 @@ namespace CarpetAss1
             return carpetRolls;
         }
 
-        //return the cost of all the rooms
+        //list of rooms and costs String Concat
+        public string RoomSummary(float roomLength, float roomWidth, string underlay, string carpet, string install, float total)
+        {
+            return $"Length {roomLength}  Width {roomWidth}   Underlay: {underlay}  Carpet: {carpet}  Installation: {install}    Total = ${total}";
+        }
+
+
+        //return the cost of all the room calculations
         public float TotalCost(float total)
         {
-
-            totalCost.Add(total);
-
-            float sumtotal = 0;
-
-            foreach (var item in totalCost)
-            {
-                sumtotal += item;
-            }
-
-
-            return sumtotal;
+            sumTotal += total;
+            return sumTotal;
         }
     }
 }

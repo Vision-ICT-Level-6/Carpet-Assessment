@@ -15,30 +15,44 @@ namespace CarpetAss1
 
         }
 
-
-        private void btnCheap_Click(object sender, EventArgs e)
+        //all button clicks for carpet selection using switch statement
+        private void btnAllCarpetButtons_Click(object sender, EventArgs e)
         {
-            pbxCarpetImage.Image = Resources.Windsor;
-            carpetCalc.CarpetCost = (float)32.50;
+            Button fakeButton = new Button();
+            fakeButton = (Button)sender;
+
+            switch (fakeButton.Text)
+            {
+                case "Cheap":
+
+                    pbxCarpetImage.Image = Resources.Windsor;
+                    carpetCalc.CarpetCost = (float)32.50;
+                    break;
+
+                case "Home":
+
+                    pbxCarpetImage.Image = Resources.Kennedy;
+                    carpetCalc.CarpetCost = (float)84.40;
+                    break;
+
+                case "Luxurious":
+
+                    pbxCarpetImage.Image = Resources.Hilton;
+                    carpetCalc.CarpetCost = (float)99.75;
+                    break;
+
+                default:
+                    // code block
+                    break;
+
+            }
+
+
             lblCarpetCost.Text = "$" + carpetCalc.CarpetCost.ToString();
             Calculation();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            pbxCarpetImage.Image = Resources.Kennedy;
-            carpetCalc.CarpetCost = (float)84.40;
-            lblCarpetCost.Text = "$" + carpetCalc.CarpetCost.ToString();
-            Calculation();
-        }
 
-        private void btnLux_Click(object sender, EventArgs e)
-        {
-            pbxCarpetImage.Image = Resources.Hilton;
-            carpetCalc.CarpetCost = (float)99.75;
-            lblCarpetCost.Text = "$" + carpetCalc.CarpetCost.ToString();
-            Calculation();
-        }
         private void cbxAllBoxes_CheckedChanged(object sender, EventArgs e)
         {
             Calculation();
@@ -82,10 +96,27 @@ namespace CarpetAss1
             var RoomCost = InstallCost + UnderlayCost + CarpetCost;
 
             lblRoomCost.Text = "$" + RoomCost.ToString();
+            lblTotalCost.Text = "$" + carpetCalc.TotalCost(RoomCost).ToString();
 
             this.Text = "You need " + CarpetRolls + " carpet rolls";
+
+            //using Ternery Operators to replace bool with yes / no
+            string underlayword = cbxUnderlay.Checked ? "Yes" : "No";
+            string carpetword = cbxCarpet.Checked ? "Yes" : "No";
+            string installword = cbxInstall.Checked ? "Yes" : "No";
+
+            if (RoomCost > 0)
+            {
+                lbxSummary.Items.Insert(0, carpetCalc.RoomSummary(carpetCalc.RoomLength, carpetCalc.RoomWidth, underlayword, carpetword, installword, RoomCost));
+            }
+
+
         }
 
-
+        //clear the summary listbox
+        private void btnClearSummary_Click(object sender, EventArgs e)
+        {
+            lbxSummary.Items.Clear();
+        }
     }
 }
